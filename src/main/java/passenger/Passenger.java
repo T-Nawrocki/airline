@@ -1,3 +1,5 @@
+package passenger;
+
 public class Passenger {
 
     private String name;
