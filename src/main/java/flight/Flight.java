@@ -43,7 +43,7 @@ public class Flight {
         return departureTime;
     }
 
-    public int getNumberOfPassengers() {
+    public int numberOfPassengers() {
         return passengers.size();
     }
 }

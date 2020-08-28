@@ -19,11 +19,6 @@ public class FlightTest {
     }
 
     @Test
-    public void passengersStartsEmpty() {
-        assertEquals(0, flight.getNumberOfPassengers());
-    }
-
-    @Test
     public void hasPlane() {
         assertEquals(plane, flight.getPlane());
     }
@@ -44,8 +39,20 @@ public class FlightTest {
     }
 
     @Test
-    public void hasDepartureeTime() {
+    public void hasDepartureTime() {
         assertEquals("16:30", flight.getDepartureTime());
     }
+
+    @Test
+    public void passengersStartsEmpty() {
+        assertEquals(0, flight.numberOfPassengers());
+    }
+
+    @Test
+    public void canGetNumberOfAvailableSeats() {
+        assertEquals(175, flight.availableSeats());
+    }
+
+
 
 }
