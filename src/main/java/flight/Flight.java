@@ -23,6 +23,10 @@ public class Flight {
         this.departureTime = departureTime;
     }
 
+    public ArrayList<Passenger> getPassengers() {
+        return passengers;
+    }
+
     public Plane getPlane() {
         return plane;
     }

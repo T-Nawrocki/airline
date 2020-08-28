@@ -3,18 +3,18 @@ package passenger;
 public class Passenger {
 
     private String name;
-    private int bags;
+    private int bagWeight;
 
-    public Passenger(String name, int bags) {
+    public Passenger(String name, int bagWeight) {
         this.name = name;
-        this.bags = bags;
+        this.bagWeight = bagWeight;
     }
 
     public String getName() {
         return name;
     }
 
-    public int getBags() {
-        return bags;
+    public int getBagWeight() {
+        return bagWeight;
     }
 }

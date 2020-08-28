@@ -6,7 +6,9 @@ import passenger.Passenger;
 import plane.Plane;
 import plane.PlaneType;
 
-import static org.junit.Assert.assertEquals;
+import java.util.ArrayList;
+
+import static org.junit.Assert.*;
 
 public class FlightTest {
 
@@ -19,6 +21,11 @@ public class FlightTest {
         plane = new Plane(PlaneType.BOEING_737);
         flight = new Flight(plane, "AB123", Airport.ARN, Airport.EDI, "16:30");
         passenger = new Passenger("Jen", 3);
+    }
+
+    @Test
+    public void hasPassengers() {
+        assertEquals(new ArrayList<Passenger>(), flight.getPassengers());
     }
 
     @Test
