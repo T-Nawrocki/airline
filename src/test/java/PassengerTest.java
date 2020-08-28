@@ -8,18 +8,18 @@ public class PassengerTest {
     private Passenger passenger;
 
     @Before
-    private void before() {
+    public void before() {
         passenger = new Passenger("Jen", 3);
     }
 
     @Test
-    private void hasName() {
+    public void hasName() {
         assertEquals("Jen", passenger.getName());
     }
 
     @Test
-    private void hasBags() {
-        assertEquals(3, getBags());
+    public void hasBags() {
+        assertEquals(3, passenger.getBags());
     }
 
 }
