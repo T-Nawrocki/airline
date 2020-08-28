@@ -20,4 +20,8 @@ public class Plane {
         return type.getMaxWeight();
     }
 
+    public int maxBaggageWeight() {
+        return getMaxWeight() / 2;
+    }
+
 }
