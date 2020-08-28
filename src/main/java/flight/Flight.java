@@ -50,4 +50,9 @@ public class Flight {
     public int availableSeats() {
         return plane.getCapacity() - numberOfPassengers();
     }
+
+
+    public void book(Passenger passenger) {
+        if (availableSeats() > 0) passengers.add(passenger);
+    }
 }
