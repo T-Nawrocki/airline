@@ -2,6 +2,7 @@ import flight.Airport;
 import flight.Flight;
 import org.junit.Before;
 import org.junit.Test;
+import passenger.Passenger;
 import plane.Plane;
 import plane.PlaneType;
 
@@ -11,11 +12,13 @@ public class FlightTest {
 
     private Flight flight;
     private Plane plane;
+    private Passenger passenger;
 
     @Before
     public void before() {
         plane = new Plane(PlaneType.BOEING_737);
         flight = new Flight(plane, "AB123", Airport.ARN, Airport.EDI, "16:30");
+        passenger = new Passenger("Jen", 3);
     }
 
     @Test
@@ -53,6 +56,19 @@ public class FlightTest {
         assertEquals(175, flight.availableSeats());
     }
 
+    @Test
+    public void canBookPassengerOnFlightIfThereAreAvailableSeats() {
+        flight.book(passenger);
+        assertEquals(1, flight.numberOfPassengers());
+    }
+
+    @Test
+    public void cannotBookPassengerOnFightIfThereAreNoSeatsLeft() {
+        Plane paperAeroplane = new Plane(PlaneType.PAPER_AEROPLANE);
+        Flight paperFlight = new Flight(paperAeroplane, "CD456", Airport.EDI, Airport.EDI, "10:00");
+        paperFlight.book(passenger);
+        assertEquals(0, paperFlight.numberOfPassengers());
+    }
 
 
 }

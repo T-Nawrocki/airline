@@ -4,7 +4,8 @@ public enum PlaneType {
 
     AIRBUS_A320(150, 70000),
     BOEING_737(175, 80000),
-    BOEING_777(400, 300000);
+    BOEING_777(400, 300000),
+    PAPER_AEROPLANE(0, 1);
 
     private int capacity;
     private int maxWeight;
