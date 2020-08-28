@@ -1,13 +1,10 @@
 package flight;
 
-import passenger.Passenger;
 import plane.Plane;
-
-import java.util.ArrayList;
 
 public class FlightManager {
 
-    private FlightManager() {};  // prevents class from being instantiated
+    private FlightManager() {}  // prevents class from being instantiated
 
     public static int baggageAllocationPerPassenger(Flight flight) {
         Plane plane = flight.getPlane();
@@ -20,6 +17,11 @@ public class FlightManager {
                 .reduce(0,  // initial value of accumulator
                         (acc, passenger) -> acc + passenger.getBagWeight(),  // reduction lambda
                         Integer::sum);  // combiner—dictates accumulator arg types, prevents clash with int + Passenger
+    }
+
+    public static int remainingBaggageCapacity(Flight flight) {
+        Plane plane = flight.getPlane();
+        return plane.maxBaggageWeight() - currentBaggageLoad(flight);
     }
 
 }

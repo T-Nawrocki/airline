@@ -6,8 +6,7 @@ import passenger.Passenger;
 import plane.Plane;
 import plane.PlaneType;
 
-import static flight.FlightManager.baggageAllocationPerPassenger;
-import static flight.FlightManager.currentBaggageLoad;
+import static flight.FlightManager.*;
 import static org.junit.Assert.assertEquals;
 
 public class FlightManagerTest {
@@ -32,6 +31,12 @@ public class FlightManagerTest {
     public void canGetCurrentBaggageLoad() {
         flight.book(passenger);
         assertEquals(150, currentBaggageLoad(flight));
+    }
+
+    @Test
+    public void canGetRemainingBaggageCapacity() {
+        flight.book(passenger);
+        assertEquals(39850, remainingBaggageCapacity(flight));
     }
 
 }
