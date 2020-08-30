@@ -4,8 +4,8 @@ import flight.Flight;
 
 public class Passenger {
 
-    private String name;
-    private int bagWeight;
+    private final String name;
+    private final int bagWeight;
     private Flight flight;
     private int seat;
 

@@ -97,7 +97,7 @@ public class FlightTest {
                 add(i);
             }
         }};
-        expectedAvailableSeats.remove(expectedAvailableSeats.indexOf(passenger.getSeat()));
+        expectedAvailableSeats.remove((Integer) passenger.getSeat());  // cast to Integer to remove object, not index
         assertEquals(expectedAvailableSeats, flight.getAvailableSeats());
     }
 

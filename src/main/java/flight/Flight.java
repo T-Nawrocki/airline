@@ -10,13 +10,13 @@ import java.util.Random;
 
 public class Flight {
 
-    private ArrayList<Passenger> passengers;
-    private Plane plane;
-    private String flightNumber;
-    private Airport destination;
-    private Airport departureAirport;
-    private ZonedDateTime departureTime;
-    private ArrayList<Integer> availableSeats;
+    private final ArrayList<Passenger> passengers;
+    private final Plane plane;
+    private final String flightNumber;
+    private final Airport destination;
+    private final Airport departureAirport;
+    private final ZonedDateTime departureTime;
+    private final ArrayList<Integer> availableSeats;
 
     public Flight(
             Plane plane,

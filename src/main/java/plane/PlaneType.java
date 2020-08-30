@@ -7,8 +7,8 @@ public enum PlaneType {
     BOEING_777(400, 300000),
     PAPER_AEROPLANE(0, 1);
 
-    private int capacity;
-    private int maxWeight;
+    private final int capacity;
+    private final int maxWeight;
 
     PlaneType(int capacity, int maxWeight) {
         this.capacity = capacity;
