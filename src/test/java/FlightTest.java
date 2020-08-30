@@ -88,7 +88,17 @@ public class FlightTest {
     @Test
     public void canBookPassengerOnFlightIfThereAreAvailableSeats() {
         flight.book(passenger);
+
         assertEquals(1, flight.numberOfPassengers());
+        assertEquals(flight, passenger.getFlight());
+
+        ArrayList<Integer> expectedAvailableSeats = new ArrayList<Integer>() {{
+            for (int i = 1; i <= flight.getPlane().getCapacity(); i++) {
+                add(i);
+            }
+        }};
+        expectedAvailableSeats.remove(expectedAvailableSeats.indexOf(passenger.getSeat()));
+        assertEquals(expectedAvailableSeats, flight.getAvailableSeats());
     }
 
     @Test

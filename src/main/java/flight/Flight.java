@@ -6,6 +6,7 @@ import plane.Plane;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Flight {
 
@@ -77,10 +78,25 @@ public class Flight {
     }
 
     public int numberOfAvailableSeats() {
-        return plane.getCapacity() - numberOfPassengers();
+        return getAvailableSeats().size();
+    }
+
+    public int randomAvailableSeatIndex() {
+        Random random = new Random();
+        return random.ints(0, numberOfAvailableSeats()).findFirst().getAsInt();
     }
 
     public void book(Passenger passenger) {
-        if (numberOfAvailableSeats() > 0) passengers.add(passenger);
+        if (numberOfAvailableSeats() > 0) {
+            passengers.add(passenger);
+
+            int seatIndex = randomAvailableSeatIndex();
+            int seat = availableSeats.get(seatIndex);
+
+            passenger.setFlight(this);
+            passenger.setSeat(seat);
+
+            availableSeats.remove(seatIndex);
+        }
     }
 }
