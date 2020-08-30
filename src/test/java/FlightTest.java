@@ -6,6 +6,8 @@ import passenger.Passenger;
 import plane.Plane;
 import plane.PlaneType;
 
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
 
 import static org.junit.Assert.*;
@@ -19,7 +21,15 @@ public class FlightTest {
     @Before
     public void before() {
         plane = new Plane(PlaneType.BOEING_737);
-        flight = new Flight(plane, "AB123", Airport.ARN, Airport.EDI, "16:30");
+        flight = new Flight(
+                plane, "AB123",
+                Airport.ARN,
+                Airport.EDI,
+                2020,
+                11,
+                24,
+                11,
+                30);
         passenger = new Passenger("Jen", 3);
     }
 
@@ -50,7 +60,9 @@ public class FlightTest {
 
     @Test
     public void hasDepartureTime() {
-        assertEquals("16:30", flight.getDepartureTime());
+        assertEquals(
+                ZonedDateTime.of(2020, 11, 24, 11, 30, 0, 0, ZoneId.of("Europe/London")),
+                flight.getDepartureTime());
     }
 
     @Test
@@ -72,7 +84,16 @@ public class FlightTest {
     @Test
     public void cannotBookPassengerOnFightIfThereAreNoSeatsLeft() {
         Plane paperAeroplane = new Plane(PlaneType.PAPER_AEROPLANE);
-        Flight paperFlight = new Flight(paperAeroplane, "CD456", Airport.EDI, Airport.EDI, "10:00");
+        Flight paperFlight = new Flight(
+                paperAeroplane,
+                "CD456",
+                Airport.EDI,
+                Airport.EDI,
+                2020,
+                9,
+                13,
+                10,
+                0);
         paperFlight.book(passenger);
         assertEquals(0, paperFlight.numberOfPassengers());
     }

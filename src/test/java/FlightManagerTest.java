@@ -18,7 +18,15 @@ public class FlightManagerTest {
     @Before
     public void before() {
         plane = new Plane(PlaneType.BOEING_737);
-        flight = new Flight(plane, "AB123", Airport.ARN, Airport.EDI, "16:30");
+        flight = new Flight(
+                plane, "AB123",
+                Airport.ARN,
+                Airport.EDI,
+                2020,
+                11,
+                24,
+                11,
+                30);
         passenger = new Passenger("Jen", 150);
     }
 

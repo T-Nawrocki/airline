@@ -3,6 +3,8 @@ package flight;
 import passenger.Passenger;
 import plane.Plane;
 
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
 
 public class Flight {
@@ -12,15 +14,28 @@ public class Flight {
     private String flightNumber;
     private Airport destination;
     private Airport departureAirport;
-    private String departureTime;
+    private ZonedDateTime departureTime;
 
-    public Flight(Plane plane, String flightNumber, Airport destination, Airport departureAirport, String departureTime) {
-        this.passengers = new ArrayList<Passenger>();
+    public Flight(
+            Plane plane,
+            String flightNumber,
+            Airport destination,
+            Airport departureAirport,
+            int departureYear,
+            int departureMonth,
+            int departureDay,
+            int departureHour,
+            int departureMinute
+    ) {
+        this.passengers = new ArrayList<>();
         this.plane = plane;
         this.flightNumber = flightNumber;
         this.destination = destination;
         this.departureAirport = departureAirport;
-        this.departureTime = departureTime;
+        this.departureTime = ZonedDateTime.of(
+                departureYear, departureMonth, departureDay,
+                departureHour, departureMinute, 0, 0,
+                ZoneId.of("Europe/London"));
     }
 
     public ArrayList<Passenger> getPassengers() {
@@ -43,7 +58,7 @@ public class Flight {
         return departureAirport;
     }
 
-    public String getDepartureTime() {
+    public ZonedDateTime getDepartureTime() {
         return departureTime;
     }
 
