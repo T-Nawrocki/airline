@@ -1,9 +1,13 @@
 package passenger;
 
+import flight.Flight;
+
 public class Passenger {
 
     private String name;
     private int bagWeight;
+    private Flight flight;
+    private int seat;
 
     public Passenger(String name, int bagWeight) {
         this.name = name;
@@ -16,5 +20,21 @@ public class Passenger {
 
     public int getBagWeight() {
         return bagWeight;
+    }
+
+    public Flight getFlight() {
+        return flight;
+    }
+
+    public int getSeat() {
+        return seat;
+    }
+
+    public void setFlight(Flight flight) {
+        this.flight = flight;
+    }
+
+    public void setSeat(int seat) {
+        this.seat = seat;
     }
 }
