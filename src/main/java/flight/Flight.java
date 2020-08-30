@@ -15,6 +15,7 @@ public class Flight {
     private Airport destination;
     private Airport departureAirport;
     private ZonedDateTime departureTime;
+    private ArrayList<Integer> availableSeats;
 
     public Flight(
             Plane plane,
@@ -36,6 +37,11 @@ public class Flight {
                 departureYear, departureMonth, departureDay,
                 departureHour, departureMinute, 0, 0,
                 ZoneId.of("Europe/London"));
+        this.availableSeats = new ArrayList<Integer>() {{
+            for (int i = 1; i <= plane.getCapacity(); i++) {
+                add(i);
+            }
+        }};
     }
 
     public ArrayList<Passenger> getPassengers() {
@@ -62,16 +68,19 @@ public class Flight {
         return departureTime;
     }
 
+    public ArrayList<Integer> getAvailableSeats() {
+        return availableSeats;
+    }
+
     public int numberOfPassengers() {
         return passengers.size();
     }
 
-    public int availableSeats() {
+    public int numberOfAvailableSeats() {
         return plane.getCapacity() - numberOfPassengers();
     }
 
-
     public void book(Passenger passenger) {
-        if (availableSeats() > 0) passengers.add(passenger);
+        if (numberOfAvailableSeats() > 0) passengers.add(passenger);
     }
 }

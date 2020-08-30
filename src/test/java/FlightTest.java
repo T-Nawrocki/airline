@@ -66,13 +66,23 @@ public class FlightTest {
     }
 
     @Test
+    public void hasAvailableSeats() {
+        ArrayList<Integer> expected = new ArrayList<Integer>() {{
+                for (int i = 1; i <= flight.getPlane().getCapacity(); i++) {
+                    add(i);
+                }
+            }};
+        assertEquals(expected, flight.getAvailableSeats());
+    }
+
+    @Test
     public void passengersStartsEmpty() {
         assertEquals(0, flight.numberOfPassengers());
     }
 
     @Test
     public void canGetNumberOfAvailableSeats() {
-        assertEquals(175, flight.availableSeats());
+        assertEquals(175, flight.numberOfAvailableSeats());
     }
 
     @Test
