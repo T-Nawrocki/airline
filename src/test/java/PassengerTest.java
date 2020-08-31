@@ -31,7 +31,8 @@ public class PassengerTest {
     public void canSetFlight() {
         Plane plane = new Plane(PlaneType.BOEING_737);
         Flight flight = new Flight(
-                plane, "AB123",
+                plane,
+                "AB123",
                 Airport.ARN,
                 Airport.EDI,
                 2020,

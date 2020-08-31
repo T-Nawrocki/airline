@@ -19,7 +19,8 @@ public class FlightManagerTest {
     public void before() {
         plane = new Plane(PlaneType.BOEING_737);
         flight = new Flight(
-                plane, "AB123",
+                plane,
+                "AB123",
                 Airport.ARN,
                 Airport.EDI,
                 2020,
